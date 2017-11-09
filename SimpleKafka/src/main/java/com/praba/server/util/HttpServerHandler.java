@@ -51,7 +51,7 @@ public class HttpServerHandler extends SimpleChannelInboundHandler<Object> {
 					if (uri.length == 2) {
 						Message message = JsonToMessage.parseJson(queryParam);
 						String topic = uri[1];
-						MessageProducer.publish(message.toString(), topic);
+						MessageProducer.publish(message, topic);
 						ByteBuf content = Unpooled.copiedBuffer(
 								"Message is successfully posted!!!",
 								CharsetUtil.UTF_8);
